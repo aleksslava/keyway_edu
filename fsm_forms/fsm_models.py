@@ -8,6 +8,7 @@ from aiogram_dialog import Dialog, Window, DialogManager, StartMode
 class MainDialog(StatesGroup):
     main = State()
     keyway_lessons = State()
+    phone = State()
 
 
 class KeywayFirstLessonDialog(StatesGroup):
@@ -30,6 +31,13 @@ class KeywayFirstLessonDialog(StatesGroup):
     sixteth_question = State()
     seventeth_question = State()
     eighteth_question = State()
+    nineteenth_question = State()
+    twentieth_question = State()
+    twenty_first_question = State()
+    twenty_second_question = State()
+    twenty_third_question = State()
+    result_first_lesson = State()
+
 
 
 class KeywaySecondLessonDialog(StatesGroup):
@@ -52,6 +60,8 @@ class KeywaySecondLessonDialog(StatesGroup):
     sixteth_question = State()
     seventeth_question = State()
     eighteth_question = State()
+
+
 
 
 class KeywayThirdLessonDialog(StatesGroup):

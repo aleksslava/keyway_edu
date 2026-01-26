@@ -1,10 +1,7 @@
 from aiogram import Bot, Dispatcher
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.client.telegram import TelegramAPIServer
-from aiogram.filters import Command
 from aiogram.fsm.storage.memory import MemoryStorage
-
-from aiogram.types import Message
 from aiogram_dialog import DialogManager, StartMode, setup_dialogs
 from dialogs.main_dialog import main_menu_dialog
 from dialogs.keyway_first_lesson_dialog import keyway_first_lesson_dialog
@@ -22,6 +19,8 @@ api = TelegramAPIServer.from_base(
 session = AiohttpSession(api=api)
 
 bot = Bot(token=config.tg_bot.token, session=session)
+
+# bot = Bot(token=config.tg_bot.token)
 dp = Dispatcher(storage=storage)
 
 dp.include_router(main_menu_router)
