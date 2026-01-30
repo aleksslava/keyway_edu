@@ -1,8 +1,5 @@
 from aiogram.filters.state import StatesGroup, State
-from aiogram.types import CallbackQuery
-from aiogram_dialog.widgets.kbd import Button, Column
-from aiogram_dialog.widgets.text import Const
-from aiogram_dialog import Dialog, Window, DialogManager, StartMode
+
 
 
 class MainDialog(StatesGroup):
@@ -36,12 +33,15 @@ class KeywayFirstLessonDialog(StatesGroup):
     twenty_first_question = State()
     twenty_second_question = State()
     twenty_third_question = State()
+    confirm_answers = State()
     result_first_lesson = State()
 
 
 
 class KeywaySecondLessonDialog(StatesGroup):
-    vebinar = State()
+    vebinar_1 = State()
+    vebinar_2 = State()
+    vebinar_3 = State()
     first_question = State()
     second_question = State()
     third_question = State()
@@ -60,12 +60,16 @@ class KeywaySecondLessonDialog(StatesGroup):
     sixteth_question = State()
     seventeth_question = State()
     eighteth_question = State()
+    nineteenth_question = State()
+    twentieth_question = State()
+    confirm_answers = State()
+    result_second_lesson = State()
 
 
 
 
 class KeywayThirdLessonDialog(StatesGroup):
-    vebinar = State()
+    vebinar_1 = State()
     first_question = State()
     second_question = State()
     third_question = State()
@@ -84,3 +88,6 @@ class KeywayThirdLessonDialog(StatesGroup):
     sixteth_question = State()
     seventeth_question = State()
     eighteth_question = State()
+    confirm_answers = State()
+    result_third_lesson = State()
+

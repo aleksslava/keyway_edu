@@ -34,3 +34,51 @@ def format_results(answers: dict, total_questions: int) -> str:
 
     return "\n".join(lines)
 
+
+def format_progress(answers: dict, total_questions: int) -> str:
+    """
+    answers: {'q1': {'вариант': True/False, ...}, ...}
+    total_questions: общее число вопросов (например 23)
+
+    Отвечен, если есть хотя бы один True.
+    Пропущен, если:
+      - нет ключа qN
+      - или answers[qN] пустой/не dict
+      - или все значения False
+    """
+    answered_nums = []
+    missed_nums = []
+
+    for n in range(1, total_questions + 1):
+        q_key = f"q{n}"
+        q_data = answers.get(q_key)
+
+        if not isinstance(q_data, dict) or not q_data:
+            missed_nums.append(n)
+            continue
+
+        has_selection = any(bool(v) for v in q_data.values())
+        (answered_nums if has_selection else missed_nums).append(n)
+
+    answered_cnt = len(answered_nums)
+    missed_cnt = len(missed_nums)
+
+    def fmt_nums(nums: list[int]) -> str:
+        return ", ".join(map(str, nums)) if nums else "—"
+
+    lines = [
+        "🧾 Прогресс перед проверкой:",
+        f"✅ Отвечено: {answered_cnt}/{total_questions}",
+        f"⏭️ Пропущено: {missed_cnt}/{total_questions}",
+        "",
+        f"✅ Вопросы с ответами: {fmt_nums(answered_nums)}",
+        f"⏭️ Пропущенные вопросы: {fmt_nums(missed_nums)}",
+    ]
+
+    # если есть пропуски — мягкий призыв
+    if missed_nums:
+        lines.append("")
+        lines.append("Можно вернуться и ответить на пропущенные, или отправить как есть на проверку.")
+
+    return "\n".join(lines)
+

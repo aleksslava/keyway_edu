@@ -61,10 +61,10 @@ async def first_lesson_start(callback: CallbackQuery, button: Button, dialog_man
     await dialog_manager.start(KeywayFirstLessonDialog.vebinar, mode=StartMode.NORMAL)
 
 async def second_lesson_start(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
-    await dialog_manager.start(KeywaySecondLessonDialog.vebinar, mode=StartMode.NORMAL)
+    await dialog_manager.start(KeywaySecondLessonDialog.vebinar_1, mode=StartMode.NORMAL)
 
 async def third_lesson_start(callback: CallbackQuery, button: Button, dialog_manager: DialogManager):
-    await dialog_manager.start(KeywayThirdLessonDialog.vebinar, mode=StartMode.NORMAL)
+    await dialog_manager.start(KeywayThirdLessonDialog.vebinar_1, mode=StartMode.NORMAL)
 
 # Меню с выбором урока Keyway
 keyway_lessons = Window(
