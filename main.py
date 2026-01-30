@@ -17,16 +17,15 @@ from aiogram.client.default import DefaultBotProperties
 config = load_config()
 storage = MemoryStorage()
 
-# api = TelegramAPIServer.from_base(
-#         "http://127.0.0.1:8081",
-#         is_local=True,  # поставьте True, если ваш telegram-bot-api запущен с --local
-#     )
-# session = AiohttpSession(api=api)
-#
-# bot = Bot(token=config.tg_bot.token, session=session)
+api = TelegramAPIServer.from_base(
+        "http://127.0.0.1:8081",
+        is_local=True,  # поставьте True, если ваш telegram-bot-api запущен с --local
+    )
+session = AiohttpSession(api=api)
 
-# bot = Bot(token=config.tg_bot.token)
-bot = Bot(token=config.tg_bot.token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+bot = Bot(token=config.tg_bot.token, session=session, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+
+# bot = Bot(token=config.tg_bot.token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher(storage=storage)
 
 dp.include_router(main_menu_router)

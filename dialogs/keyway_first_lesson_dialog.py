@@ -40,11 +40,11 @@ async def question_answers(dialog_manager: DialogManager, **kwargs):
 # Сообщение с вебинаром первого урока Keyway
 vebinar = Window(
     Const(text="Запись первого вебинара по обучению Keyway"),
-    # StaticMedia(
-    #     path=BASE_DIR / "media" / "video" / "vebinar_keyway_1.mp4",
-    #     type=ContentType.VIDEO,
-    #     media_params={"supports_streaming": True},
-    # ),
+    StaticMedia(
+        path=BASE_DIR / "media" / "video" / "vebinar_keyway_1.mp4",
+        type=ContentType.VIDEO,
+        media_params={"supports_streaming": True},
+    ),
     Group(
         Row(
             Cancel(Const('Назад'), id='go_cancel_dialog'),
