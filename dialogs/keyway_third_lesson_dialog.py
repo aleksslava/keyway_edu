@@ -506,7 +506,7 @@ result = Window(
     getter=result_getter
 )
 
-keyway_second_lesson_dialog = Dialog(vebinar_1, first_question, second_question, third_question, fourth_question,
+keyway_third_lesson_dialog = Dialog(vebinar_1, first_question, second_question, third_question, fourth_question,
                                     fifth_question, sixth_question, seventh_question, eighth_question, ninth_question,
                                     tenth_question, eleventh_question, twelth_question, thirteth_question,
                                     fourteth_question, fifteth_question, sixteth_question, seventeth_question,

@@ -5,6 +5,8 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram_dialog import DialogManager, StartMode, setup_dialogs
 from dialogs.main_dialog import main_menu_dialog
 from dialogs.keyway_first_lesson_dialog import keyway_first_lesson_dialog
+from dialogs.keyway_second_lesson_dialog import keyway_second_lesson_dialog
+from dialogs.keyway_third_lesson_dialog import keyway_third_lesson_dialog
 from handlers.start_handler import main_menu_router
 from config.config import load_config
 from aiogram.enums.parse_mode import ParseMode
@@ -28,7 +30,8 @@ bot = Bot(token=config.tg_bot.token, default=DefaultBotProperties(parse_mode=Par
 dp = Dispatcher(storage=storage)
 
 dp.include_router(main_menu_router)
-dp.include_routers(main_menu_dialog, keyway_first_lesson_dialog)
+dp.include_routers(main_menu_dialog, keyway_first_lesson_dialog, keyway_second_lesson_dialog,
+                   keyway_third_lesson_dialog)
 
 setup_dialogs(dp)
 
